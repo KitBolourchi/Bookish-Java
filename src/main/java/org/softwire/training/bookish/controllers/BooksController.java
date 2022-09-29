@@ -38,19 +38,19 @@ public class BooksController {
         return new ModelAndView("books", "model", bookPageModel);
     }
 
-    @RequestMapping("/add-book")
+    @RequestMapping("/add-books")
     RedirectView addBook(@ModelAttribute Book book) {
 
         booksService.addBook(book);
 
-        return new RedirectView("/about");
+        return new RedirectView("/books");
     }
 
-    @RequestMapping("/delete-technology")
+    @RequestMapping("/delete-book")
     RedirectView deleteBook(@RequestParam int bookId) {
 
         booksService.deleteBook(bookId);
 
-        return new RedirectView("/about");
+        return new RedirectView("/books");
     }
 }

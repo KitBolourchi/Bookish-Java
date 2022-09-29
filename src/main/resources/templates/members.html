@@ -21,15 +21,15 @@
   <h2>This app was made using:</h2>
 
   <div class="technology-list">
-    <div th:each="technology : ${model.technologies}" class="technology">
-      <img th:src="${technology.logoUrl}" th:title="${technology.name}" />
+    <div th:each="members : ${model.members}" class="Members">
+<!--      <img th:src="${technology.logoUrl}" th:title="${technology.name}" />-->
 
-      <a th:href="${'/about/delete-technology?technologyId=' + technology.id}" class="delete-button">delete</a>
+      <a th:href="${'/members/delete-members?userID=' + members.userID}" class="delete-button">delete</a>
     </div>
   </div>
 
   <h2>Add a technology:</h2>
-  <form th:action="@{/about/add-technology}" method="post">
+  <form th:action="@{/members/add-members}" method="post">
     <div class="add-tech-row">
       <label>
         <span>Name: </span>
@@ -44,7 +44,7 @@
     </div>
     <div class="add-tech-row">
       <span><!-- spacer --></span>
-      <input type="submit" value="Add technology" />
+      <input type="submit" value="Add member" />
     </div>
   </form>
 </div>

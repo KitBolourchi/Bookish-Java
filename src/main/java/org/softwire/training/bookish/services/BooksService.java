@@ -10,7 +10,7 @@ public class BooksService extends DatabaseService {
 
     public List<Book> getAllbooks() {
         return jdbi.withHandle(handle ->
-                handle.createQuery("SELECT Title FROM Books;")
+                        handle.createQuery("SELECT Author, Title, NumberOfCopies FROM Books;")
                         .mapToBean(Book.class)
                         .list()
         );
@@ -31,7 +31,7 @@ public class BooksService extends DatabaseService {
     public void deleteBook(int bookId) {
         jdbi.useHandle(handle ->
                 handle.createUpdate("DELETE FROM Books WHERE BookID = :bookId")
-                        .bind("id", bookId)
+                        .bind("bookID", bookId)
                         .execute()
         );
     }
